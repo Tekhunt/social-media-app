@@ -28,6 +28,10 @@ class UserSerializer(serializers.ModelSerializer):
 
         return user
 
+class UserDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = '__all__'
 
 class LikeSerializer(serializers.ModelSerializer):
     class Meta:
