@@ -83,5 +83,6 @@ class DisLike(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
+        unique_together = ("post", "dis_liked_by")
         verbose_name = "DisLike"
         verbose_name_plural = "DisLikes"

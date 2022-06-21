@@ -2,11 +2,6 @@ from pyexpat import model
 from tabnanny import verbose
 from rest_framework import serializers
 from drf_writable_nested import WritableNestedModelSerializer
-
-# from django.contrib.auth.models import User
-# from models.post_model import Posts
-# from models.likes_model import Likes
-# from models.dislike_model import DisLikes
 from .models import User, Post, Like, DisLike
 
 
