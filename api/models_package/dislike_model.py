@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 
 class DisLikes(models.Model):
-    ''' Dislike  comment '''
+    """Dislike  comment"""
 
     posts = models.ForeignKey(Posts, related_name="dis_likes", on_delete=models.CASCADE)
     dis_liked_by = models.ForeignKey(User, on_delete=models.CASCADE)

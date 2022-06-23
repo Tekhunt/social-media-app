@@ -1,8 +1,6 @@
 from rest_framework import generics
 from rest_framework.response import Response
 import requests
-
-
 from .models import Post, User, Like, DisLike
 from .serializers import (
     PostSerializer,
@@ -12,6 +10,14 @@ from .serializers import (
     DisLikeSerializer,
 )
 from datetime import date
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+email_key = os.getenv("EMAIL_API_KEY")
+geodata_key = os.getenv("GEODATA_API_KEY")
+holiday_key = os.getenv("HOLIDAY_API_KEY")
 
 
 class UserRegister(generics.GenericAPIView):
@@ -19,7 +25,7 @@ class UserRegister(generics.GenericAPIView):
 
     def post(self, request, *args, **kwargs):
         geo_data = requests.get(
-            "https://ipgeolocation.abstractapi.com/v1/?api_key=797c3b117c1445eeb8acfba43ffc0d9d"
+            f"https://ipgeolocation.abstractapi.com/v1/?api_key={geodata_key}"
         )
         geo_data_response = geo_data.json()
         email = request.data.get("email")
@@ -28,12 +34,12 @@ class UserRegister(generics.GenericAPIView):
         current_day = date.today().day
 
         response = requests.get(
-            f"https://holidays.abstractapi.com/v1/?api_key=6ad5307fdf85441a817203c3c067335a&country=NG&year={current_year}&month={current_month}&day={current_day}"
+            f"https://holidays.abstractapi.com/v1/?api_key={holiday_key}&country=NG&year={current_year}&month={current_month}&day={current_day}"
         )
         holiday_data_res_obj = response.json()
 
         response = requests.get(
-            f"https://emailvalidation.abstractapi.com/v1/?api_key=41066526ff2a472386d10144a84b24f8&email={email}"
+            f"https://emailvalidation.abstractapi.com/v1/?api_key={email_key}&email={email}"
         )
         email_check_res = response.json()
 
@@ -58,7 +64,11 @@ class UserRegister(generics.GenericAPIView):
                 }
             )
         else:
-            return Response({"message": "Poor email quality and deliverability"})
+            return Response(
+                {
+                    "message": "Poor email quality and deliverability, please use a valid email"
+                }
+            )
 
 
 class UserData(generics.ListCreateAPIView):

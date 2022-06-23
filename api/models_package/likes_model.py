@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 
 class Likes(models.Model):
-    ''' like  comment '''
+    """like  comment"""
 
     posts = models.ForeignKey(Posts, related_name="likes", on_delete=models.CASCADE)
     liked_by = models.ForeignKey(User, on_delete=models.CASCADE)

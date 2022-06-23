@@ -2,14 +2,15 @@ from django.test import TestCase
 from django.contrib.auth import get_user_model
 from ..models import User
 
-class ModelTests(TestCase):
 
+class ModelTests(TestCase):
     def test_create_user_with_email(self):
-        email = 'test@gmail.com'
-        password = '1234'
+        email = "test@gmail.com"
+        password = "1234"
         user = User.objects.create_user(
             email=email,
-            password=password,)
+            password=password,
+        )
         # user = get_user_model().objects.create_user(
         #     email=self.normalize(email),
         #     password=password,
@@ -32,15 +33,10 @@ class ModelTests(TestCase):
     def test_user_without_email_raise_error(self):
 
         with self.assertRaises(ValueError):
-            User.objects.create_user('', 'test123')
+            User.objects.create_user("", "test123")
 
     def test_create_super_user(self):
-        user = User.objects.create_superuser(
-            'test@example.com',
-            'test123'
-        )
+        user = User.objects.create_superuser("test@example.com", "test123")
 
         self.assertTrue(user.is_superuser)
         self.assertTrue(user.is_staff)
-
-

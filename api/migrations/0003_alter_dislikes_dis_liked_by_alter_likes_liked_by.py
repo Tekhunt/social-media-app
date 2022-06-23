@@ -8,18 +8,22 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('api', '0002_user_is_staff_alter_user_is_active'),
+        ("api", "0002_user_is_staff_alter_user_is_active"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='dislikes',
-            name='dis_liked_by',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            model_name="dislikes",
+            name="dis_liked_by",
+            field=models.OneToOneField(
+                on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL
+            ),
         ),
         migrations.AlterField(
-            model_name='likes',
-            name='liked_by',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            model_name="likes",
+            name="liked_by",
+            field=models.OneToOneField(
+                on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL
+            ),
         ),
     ]

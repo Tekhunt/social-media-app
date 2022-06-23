@@ -61,7 +61,7 @@ class Post(models.Model):
 
 
 class Like(models.Model):
-    """ like  comment """
+    """like  comment"""
 
     post = models.ForeignKey(Post, related_name="likes", on_delete=models.CASCADE)
     liked_by = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -75,7 +75,7 @@ class Like(models.Model):
 
 
 class DisLike(models.Model):
-    """ Dislike  comment """
+    """Dislike  comment"""
 
     post = models.ForeignKey(Post, related_name="dis_likes", on_delete=models.CASCADE)
     dis_liked_by = models.OneToOneField(User, on_delete=models.CASCADE)

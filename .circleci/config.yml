@@ -40,3 +40,10 @@ jobs:
       - store_artifacts:
           path: test-reports
           destination: test-reports
+
+      - run:
+          name: run formatting
+          command: |
+            black api
+            black socialnetwork
+

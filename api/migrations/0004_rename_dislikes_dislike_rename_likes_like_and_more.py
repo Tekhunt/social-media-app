@@ -6,46 +6,46 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('api', '0003_alter_dislikes_dis_liked_by_alter_likes_liked_by'),
+        ("api", "0003_alter_dislikes_dis_liked_by_alter_likes_liked_by"),
     ]
 
     operations = [
         migrations.RenameModel(
-            old_name='DisLikes',
-            new_name='DisLike',
+            old_name="DisLikes",
+            new_name="DisLike",
         ),
         migrations.RenameModel(
-            old_name='Likes',
-            new_name='Like',
+            old_name="Likes",
+            new_name="Like",
         ),
         migrations.RenameModel(
-            old_name='Posts',
-            new_name='Post',
+            old_name="Posts",
+            new_name="Post",
         ),
         migrations.AlterModelOptions(
-            name='dislike',
-            options={'verbose_name': 'DisLike', 'verbose_name_plural': 'DisLikes'},
+            name="dislike",
+            options={"verbose_name": "DisLike", "verbose_name_plural": "DisLikes"},
         ),
         migrations.AlterModelOptions(
-            name='like',
-            options={'verbose_name': 'Like', 'verbose_name_plural': 'Likes'},
+            name="like",
+            options={"verbose_name": "Like", "verbose_name_plural": "Likes"},
         ),
         migrations.AlterModelOptions(
-            name='post',
-            options={'verbose_name': 'Post', 'verbose_name_plural': 'Posts'},
+            name="post",
+            options={"verbose_name": "Post", "verbose_name_plural": "Posts"},
         ),
         migrations.RenameField(
-            model_name='dislike',
-            old_name='posts',
-            new_name='post',
+            model_name="dislike",
+            old_name="posts",
+            new_name="post",
         ),
         migrations.RenameField(
-            model_name='like',
-            old_name='posts',
-            new_name='post',
+            model_name="like",
+            old_name="posts",
+            new_name="post",
         ),
         migrations.AlterUniqueTogether(
-            name='like',
-            unique_together={('post', 'liked_by')},
+            name="like",
+            unique_together={("post", "liked_by")},
         ),
     ]

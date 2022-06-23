@@ -1,6 +1,17 @@
 from django.urls import path
 
-from .views import PostList, PostDetail, UserRegister, UserData, GetUser, UpdatePost, LikeList, LikeDetail, DisLikeList, DisLikeDetail
+from .views import (
+    PostList,
+    PostDetail,
+    UserRegister,
+    UserData,
+    GetUser,
+    UpdatePost,
+    LikeList,
+    LikeDetail,
+    DisLikeList,
+    DisLikeDetail,
+)
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 
