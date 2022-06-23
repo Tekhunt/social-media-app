@@ -41,8 +41,3 @@ jobs:
           path: test-reports
           destination: test-reports
 
-      - run:
-          name: run formatting
-          command: |
-            python3 black api
-
