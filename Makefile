@@ -1,5 +1,3 @@
-# SHELL := /bin/bash
-
 run:
 	python manage.py runserver 8005
 
@@ -11,3 +9,6 @@ migrate:
 
 superuser:
 	python manage.py createsuperuser
+
+test:
+	python3 manage.py test
