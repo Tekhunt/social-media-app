@@ -1,11 +1,7 @@
 from pyexpat import model
 from tabnanny import verbose
 from rest_framework import serializers
-
-# from django.contrib.auth.models import User
-# from models.post_model import Posts
-# from models.likes_model import Likes
-# from models.dislike_model import DisLikes
+from drf_writable_nested import WritableNestedModelSerializer
 from .models import User, Post, Like, DisLike
 
 
@@ -28,10 +24,12 @@ class UserSerializer(serializers.ModelSerializer):
 
         return user
 
+
 class UserDataSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = '__all__'
+        fields = "__all__"
+
 
 class LikeSerializer(serializers.ModelSerializer):
     class Meta:
@@ -45,7 +43,8 @@ class DisLikeSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class PostSerializer(serializers.ModelSerializer):
+class PostSerializer(WritableNestedModelSerializer, serializers.ModelSerializer):
+
     likes = LikeSerializer(many=True, required=False)
     dis_likes = DisLikeSerializer(many=True, required=False)
 
