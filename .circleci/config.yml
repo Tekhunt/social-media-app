@@ -34,7 +34,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            # cd pollsapi
+            # cd postsapi
             python manage.py test
 
       - store_artifacts:
@@ -45,5 +45,4 @@ jobs:
           name: run formatting
           command: |
             black api
-            black socialnetwork
 
