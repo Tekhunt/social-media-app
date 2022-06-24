@@ -33,4 +33,4 @@ This app has a Makefile where frequntly run commands have been written. Below ar
 - flake8 is used for code linting and to identify and flag possible syntax errors, possible bugs, and stylistic errors
 - `https://www.abstractapi.com/` is used for email validation, user's geoinfo and holidays extraction
 
-PS: The `API_KEYS` use in this project is not in this repository. `https://www.abstractapi.com/` offers free api for email validation, geodata extraction and holidays.
+PS: The `API_KEYS` used in this project is not in this repository. `https://www.abstractapi.com/` offers free api for email validation, geodata extraction and holidays.

@@ -4,7 +4,18 @@ from django.urls import reverse
 from rest_framework import status
 from api.models import Post
 from django.urls import resolve
-from api.views import GetUser, LikeList, PostDetail, PostList, UpdatePost, UserData, UserRegister, LikeDetail, DisLikeList, DisLikeDetail
+from api.views import (
+    GetUser,
+    LikeList,
+    PostDetail,
+    PostList,
+    UpdatePost,
+    UserData,
+    UserRegister,
+    LikeDetail,
+    DisLikeList,
+    DisLikeDetail,
+)
 
 
 class TestPost(TestCase):
@@ -31,7 +42,6 @@ class TestPost(TestCase):
     def test_update_detail_url_is_resolved(self):
         url = reverse("update_detail", args=[1])
         self.assertEquals(resolve(url).func.view_class, UpdatePost)
-
 
     def test_likes_url_is_resolved(self):
         url = reverse("likes")
